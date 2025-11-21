@@ -32,7 +32,8 @@ git clone https://github.com/YeQiu29/deteksi-gambar-sama-python
 cd deteksi-gambar-sama-python
 ```
 ### 2. Install Dependencies
-```bash
+Buat virtual environment (opsional) dan install paket yang dibutuhkan. Kamu bisa membuat file requirements.txt dengan isi berikut:
+```plaintext
 fastapi
 uvicorn
 opencv-python-headless
@@ -40,6 +41,7 @@ scikit-image
 python-multipart
 numpy
 ```
+Lalu Jalankan
 ```bash
 pip install -r requirements.txt
 ```
@@ -85,5 +87,6 @@ curl -X 'POST' \
   -F 'files=@foto_ktp_A_duplikat.jpg' \
   -F 'files=@foto_selfie.jpg'
 ```
-Created with ❤️ using Python and FastAPI by Dennis Putra Hilmansyah
-
+<div align="center">
+  Created with ❤️ using Python and FastAPI by Dennis Putra Hilmansyah
+</div>
