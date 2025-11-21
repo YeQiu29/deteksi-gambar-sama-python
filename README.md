@@ -28,6 +28,62 @@ Project ini dibangun menggunakan library open-source yang handal:
 
 ### 1. Clone Repository
 ```bash
-git clone [https://github.com/username-anda/repo-anda.git](https://github.com/username-anda/repo-anda.git)
-cd repo-anda
+git clone https://github.com/YeQiu29/deteksi-gambar-sama-python
+cd deteksi-gambar-sama-python
+```
+### 2. Install Dependencies
+```bash
+fastapi
+uvicorn
+opencv-python-headless
+scikit-image
+python-multipart
+numpy
+```
+```bash
+pip install -r requirements.txt
+```
+### 3. Jalankan Server
+```bash
+# Menjalankan server pada port 8000
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+## 📖 Dokumentasi API
+
+Setelah server berjalan, dokumentasi interaktif tersedia di: 👉 Swagger UI: http://localhost:8000/docs 👉 ReDoc: http://localhost:8000/redoc
+
+Endpoint: POST /compare-images/
+Digunakan untuk membandingkan sekumpulan gambar yang diunggah.
+
+Parameter Body:
+
+files: Array of Files (multipart/form-data).
+
+Validasi: Minimal 2 file, Maksimal 10 file.
+
+Contoh Response (Jika ada kemiripan):
+```JSON
+{
+  "similar": false,
+  "message": "Images 1 and 2 are similar with score 0.9812"
+}
+```
+Contoh Response (Jika semua unik):
+```JSON
+{
+  "similar": true,
+  "message": "Successful"
+}
+```
+## 🧪 Contoh Testing via Terminal (cURL)
+```bash
+curl -X 'POST' \
+  'http://localhost:8000/compare-images/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'files=@foto_ktp_A.jpg' \
+  -F 'files=@foto_ktp_A_duplikat.jpg' \
+  -F 'files=@foto_selfie.jpg'
+```
+Created with ❤️ using Python and FastAPI by Dennis Putra Hilmansyah
 
