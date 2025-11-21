@@ -41,7 +41,7 @@ scikit-image
 python-multipart
 numpy
 ```
-Lalu Jalankan
+Lalu Jalankan:
 ```bash
 pip install -r requirements.txt
 ```
